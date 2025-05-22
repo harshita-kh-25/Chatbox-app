@@ -1,0 +1,305 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(115deg, #f98fcb, #9dbdf9, #84f5ed);
+}
+.chatPopUp{
+    position: relative;
+    background-color: #fff;
+    /* border: 1px solid #fff; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    width: 400px;
+    }
+    
+    
+    .chatHeader{
+    background-color:#5350c4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.chatTitle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.chatLogo{
+height: 35px;
+width: 40px;
+padding: 6px;
+fill: #5350c4;
+flex-shrink: 0;
+background: #fff;
+border-radius: 50%;
+}
+
+.chatName{
+    color: #fff;
+    font-size: 20px;
+}
+.closeButton{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #fff;
+    padding: auto;
+    background-color: #5350c4;
+    transition:  0.2s ease ;
+}
+.closeButton:hover{
+    background-color: #fff;
+    color: #5350c4;
+}
+
+.chatBody{
+    height: 400px;
+    padding: 25px 22px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 82px;
+    gap: 20px;
+    overflow-y: auto;   
+    scrollbar-width: thin;
+    scrollbar-color: #ccccf5 transparent;
+}
+.chatLogoBody{
+    height: 33px;
+    width: 33px;
+    padding: 6px;
+    fill: #fff;
+    flex-shrink: 0;
+    background: #5350c4;
+    border-radius: 50%;
+
+}
+
+.message{
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+    align-items: end;
+    
+}
+.fa-hand{
+    color: rgb(241, 234, 38);
+}
+
+.messageText{
+    padding: 12px 16px;
+    max-width: 65%;
+    font-size: 0.95rem;
+    background: #f2f2ff;
+    word-wrap: break-word;
+}
+.userMessage{
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    align-items: flex-end;
+}
+.botMessage .messageText{
+    background:#f2f2ff;
+    border-radius: 13px 13px 13px 3px;
+}
+.userMessage .messageText{
+    color: #fff;
+    background:#5350c4;
+    border-radius: 13px 13px 3px 13px;
+}
+
+.chatBody .userMessage .attachment{
+width: 50%;
+margin-top: -7px;
+border-radius: 13px 3px 13px 13px;
+}
+.thinkingIndicator{
+display: flex;
+gap: 5px;
+padding-block: 8px;
+}
+ .thinkingIndicator .dot{
+    height:7px ;
+    width: 7px;
+    opacity: 0.7;
+    background-color: #6f6bc2;
+    border-radius: 50%;
+    animation: bounce 1.8s infinite ease-in-out;
+
+}
+  
+  @keyframes bounce {
+    0%, 44% {
+      transform: translateY(0);
+    }
+    28%{
+        opacity: 0.4;
+      transform: translateY(-4px);
+    }
+    44%{
+        opacity: 0.2;
+    }
+}
+.thinkingIndicator .dot:nth-child(1){
+    animation-delay: 0.2s;
+}
+.thinkingIndicator .dot:nth-child(2){
+    animation-delay: 0.3s;
+}
+.thinkingIndicator .dot:nth-child(3){
+    animation-delay: 0.4s;
+}
+ .botMessage .thinking .messageText{
+    padding: 2px 16px;
+}
+.chatFooter{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+    padding: 15px 22px 20px;
+}
+.chatFooter .chatForm{
+    display: flex;
+    position: relative;
+    align-items: center;
+    background: #fff;
+    border-radius: 32px;
+    outline: 1px solid #cccce5;
+}
+
+.chatFooter .chatForm:focus-within{
+    outline: 2px solid #5350c4;
+
+}
+
+.chatForm .messageInput {
+    border: none;
+    outline: none;
+    height: 47px;
+    resize: none;
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 14px 0 13px 18px;
+    border-radius: inherit;
+    max-height: 180px;
+    white-space: pre-line;
+    overflow-y: auto !important; /* Enable scrollbar when content exceeds max-height */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #ccc transparent; /* Firefox */
+}
+
+/* WebKit (Chrome, Safari, Edge) scrollbar styling */
+.chatForm .messageInput::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+}
+
+.chatForm .messageInput::-webkit-scrollbar-track {
+    background: transparent; /* Track background */
+}
+
+.chatForm .messageInput::-webkit-scrollbar-thumb {
+    background: #ccc; /* Scrollbar color */
+    border-radius: 10px;
+}
+
+.chatForm .messageInput::-webkit-scrollbar-thumb:hover {
+    background: #ccccf5; /* Hover color */
+}
+
+/* Update hover state for Firefox */
+.chatForm .messageInput:hover {
+    scrollbar-color: #ccccf5 transparent; /* Firefox */
+}
+  
+.chatControls{
+    display: flex;
+    height: 47px;
+    align-items: center;
+    align-self: flex-end;
+    gap: 3px;
+    padding-right: 6px;
+}
+.symbolsRounded{
+height: 35px;
+width: 35px;
+border: none;
+cursor: pointer;
+color: #706db0;
+background: none;
+border-radius: 50%;
+font-size: 1.15rem;
+transition: 0.2s ease ;
+}
+
+.symbolsRounded:hover{
+    background: #f1f1ff;
+}
+
+#sendMessage{
+    background-color: #5350c4;
+    color: #fff;
+    display: none;
+}
+.chatForm .messageInput:valid~.chatControls #sendMessage{
+    display: block;
+}
+#sendMessage:hover{
+    background-color: #3d39ac;
+}
+
+.chatForm .fileUploadWrapper {
+    height: 35px;
+    width: 35px;
+    position: relative;
+}
+
+.chatForm .fileUploadWrapper :where(img,button){
+    position: absolute;
+}
+.chatForm .fileUploadWrapper img{
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.chatForm .fileUploadWrapper #fileCancel{
+    color: #ff0000;
+    background: #fff;
+}
+
+.chatForm .fileUploadWrapper :where(img,#fileCancel),
+.chatForm .fileUploadWrapper.fileUploaded  #fileUpload{
+    display: none;
+}
+
+
+.chatForm .fileUploadWrapper.fileUploaded img , .chatForm .fileUploadWrapper.fileUploaded:hover #fileCancel{
+    display: block;
+  }
+  
+    em-emoji-picker{
+    position: absolute;
+    left: 50%;
+    top: -337px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 330px;
+    transform: translate(-50%);
+    visibility: hidden;
+  }
+
+  body.show-emoji-picker   em-emoji-picker{
+    visibility: visible;
+  } 
